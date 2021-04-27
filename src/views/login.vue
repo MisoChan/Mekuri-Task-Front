@@ -49,9 +49,10 @@ export default {
         email_user: this.user_email,
         pass: this.user_pass
       }
-      ).then(function () {
+      ).then(response => {
         // タスクリストにとりあえず飛ばす
-        // window.location.href = '/task_lists';
+        console.log(response.headers.access_token)
+        // window.location.href = '/tasklist';
       })
     }
   }
