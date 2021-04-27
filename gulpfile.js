@@ -4,14 +4,14 @@ const sass = require('gulp-sass')
 
 // sassの読み込み先とcssの保存先指定
 const hoge = () => {
-  return gulp.src('./src/pages/assets/sass/**/*.scss')
+  return gulp.src('./src/assets/sass/**/*.scss')
     .pipe(sass({ outputStyle: 'expanded' }))
-    .pipe(gulp.dest('./src/pages/assets/css/'))
+    .pipe(gulp.dest('./src/assets/css/'))
 }
 
 // 自動監視のタスク、sassWatchって名前にする
 const sassWatch = () => {
-  const watcher = gulp.watch(['./src/pages/assets/sass/**/*.scss'])
+  const watcher = gulp.watch(['./src/assets/sass/**/*.scss'])
   watcher.on('change', hoge)
 }
 
