@@ -51,8 +51,7 @@ export default {
       }
       ).then(response => {
         // タスクリストにとりあえず飛ばす
-        console.log(response.headers.access_token)
-        // window.location.href = '/tasklist';
+        window.location.href = '/tasklist'
       })
     }
   }
