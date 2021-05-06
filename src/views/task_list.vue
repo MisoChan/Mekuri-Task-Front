@@ -72,7 +72,7 @@ export default {
   // DOMが出来上がる前にやっとく処理
   created () {
     axios
-      .get('/task_lists/show')
+      .get(process.env.VUE_APP_API_URL + '/task_lists/show')
       .then((response) => (this.tasklist = response.data))
   },
 
