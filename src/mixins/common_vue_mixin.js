@@ -5,7 +5,8 @@ export default {
   created () {
     // Axiosのヘッダをここで設定する。
     axios.defaults.headers.common = {
-      'X-Requested-With': 'XMLHttpRequest'
+      'X-Requested-With': 'XMLHttpRequest',
+      'Content-Type': 'application/json'
     }
     axios.defaults.withCredentials = true
   },
