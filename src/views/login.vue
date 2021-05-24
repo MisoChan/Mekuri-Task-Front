@@ -34,7 +34,7 @@
 
 <script>
 import Mixins from '@/mixins/common_vue_mixin.js'
-import axios from 'axios'
+import axios from '@/util/mekuri_common_axios'
 export default {
   mixins: [Mixins],
   data () {
@@ -45,7 +45,7 @@ export default {
   },
   methods: {
     request_login () {
-      axios.post(process.env.VUE_APP_API_URL + '/login', {
+      axios.post('/login', {
         email_user: this.user_email,
         pass: this.user_pass
       }

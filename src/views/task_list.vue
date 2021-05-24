@@ -43,7 +43,7 @@
 </template>
 <style scoped src="@/assets/css/task_lists.css"></style>
 <script>
-import axios from 'axios'
+import axios from '@/util/mekuri_common_axios'
 import Taskinput from '@/components/Taskinput.vue'
 import Taskplan from '@/components/TaskPlans.vue'
 
@@ -72,7 +72,7 @@ export default {
   // DOMが出来上がる前にやっとく処理
   created () {
     axios
-      .get(process.env.VUE_APP_API_URL + '/task_lists/show')
+      .get('/task_lists/show')
       .then((response) => (this.tasklist = response.data))
   },
 

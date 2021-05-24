@@ -108,7 +108,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+import axios from '@/util/mekuri_common_axios'
 import Mixins from '@/mixins/common_vue_mixin.js'
 export default {
   mixins: [Mixins],
