@@ -1,33 +1,33 @@
 <template>
-  <div class="login_form">
+  <main class="background">
+    <div class="login_form">
 
-    <div class="login_input">
-      <div id="login_title">ログイン
-        <div id="greet_message">
-        おかえりなさいまし。
-      </div>
-
-      </div>
-
-      <ul class="login_form_input_li">
-        <li>メールアドレス</li>
-        <li><input type="text" class="login_input" v-model="user_email"/></li>
-
-        <li>パスワード</li>
-        <li><input type="password" class="login_input" v-model="user_pass"/></li>
-
-        <li>
-          <div>
-
-          <button  id="button_login_submit" @click="request_login()">ログイン</button>
-          <a>パスワード忘れた…</a>
+      <div class="login_input">
+        <div id="login_title">
+          <div id="greet_message">
+          おかえりなさいまし
+          </div>
         </div>
-        </li>
 
-      </ul>
+        <div class="login_form_input">
+          <div class="mailaddress">
+            <label>メールアドレス</label>
+            <input type="text" class="login_input" v-model="user_email"/>
+          </div>
 
+          <div class="password">
+            <label>パスワード</label>
+            <input type="password" class="login_input" v-model="user_pass"/>
+          </div>
+
+          <div>
+              <button  id="button_login_submit" @click="request_login()">ログイン</button>
+          </div>
+          <a id="forgot_password">パスワード忘れた…</a>
+        </div>
+      </div>
     </div>
-  </div>
+  </main>
 </template>
 
 <style scoped src="@/assets/css/login.css"></style>

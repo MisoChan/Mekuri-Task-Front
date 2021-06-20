@@ -1,39 +1,62 @@
 // Place all the styles related to the login controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-@media screen and (min-width:768px){
-    .login_form{
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 768px;
-        height: 430px;
-        margin-right: -50%;
-        transform: translate(-50%, -50%) ;
-        border: 1px solid #ccc; /* 枠線 */
-        background-color: 
-        #f2f2f2; 
-        box-shadow: 1px 1px 2px #ccc;
-    }
+@media screen and (min-width: 768px) {
+  .login_form {
+    margin: 50px auto;
+    width: 768px;
+    border: 1px solid #ECE5DA;
+    background-color: #ECE5DA;
+    box-shadow: 1px 1px 2px #c0bab1;
+    margin: 3em auto;
+    padding: 1em;
+    max-width: 400px;
+    color: #333333;
+    font-family: 'Noto Sans Japanese', sans-serif;
+  }
 
-    .login_form_input_li{
-        
-        position: absolute;
-        top: 30%;
-        list-style: none
-        
-       
-    }
-    .login_input{
-        margin: 0em 2em 2em 0em;
-    }
-    #login_title{
-        margin: 1em 1em 1em 1em;
-        font-size: 25px
-    }
-    #greet_message{
-        
-        font-size: 15px
-    }
-    
+  .login_input {
+    margin: 0 auto;
+  }
+
+  #login_title {
+    margin: 0 auto;
+    width: 90%;
+    font-size: 25px;
+    text-align: center;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+  }
+
+  #greet_message {
+    font-size: 24px;
+  }
+
+  .login_form_input {
+    top: 30%;
+    margin: 0.5em 1em;
+  }
+
+  .login_form_input>div{
+    margin: 0.5em;
+  }
+
+  .login_form_input>div>label{
+    font-size: 12px;
+    color: #666666;
+  }
+
+  .login_input{
+    width: 100%;
+  }
+
+  #button_login_submit{
+    width: 100%;
+    margin: 1em 0;
+  }
+
+  #forgot_password{
+    font-size: small;
+    font-weight: normal;
+  }
 }

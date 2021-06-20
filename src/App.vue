@@ -1,11 +1,9 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
   <router-view/>
 </template>
 
+<style src="@/assets/css/destyle.css"></style>
+<style src="@/assets/css/base.css"></style>
 <style>
 
 #nav {
