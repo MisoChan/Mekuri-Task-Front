@@ -3,7 +3,9 @@
     <div class="login_input">
       <div id="login_title">
         ログイン
-        <div id="greet_message">おかえりなさいまし。</div>
+        <div id="greet_message">
+          おかえりなさいまし。
+        </div>
       </div>
 
       <ul class="login_form_input_li">

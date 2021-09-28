@@ -2,9 +2,6 @@
   <!-- タスク一覧部分 -->
 
   <div class="tasks">
-    <label for="checkdone" class="task_head_text">
-      {{ item.order_num }} 番目
-    </label>
     <ul style="list-style: none">
       <li class="task_header_li">
         <input
@@ -28,9 +25,9 @@
         <input
           type="checkbox"
           class="tasklist_checkbox"
-          v-bind:id="details.id"
-          v-bind:value="details.id"
-          v-bind:data-task-header="item.id"
+          :id="details.id"
+          :value="details.id"
+          :data-task-header="item.id"
           @change="planCheckBoxSelected(item.id, details.id)"
         />
         <label for="checkdone" class="task_detail_text">

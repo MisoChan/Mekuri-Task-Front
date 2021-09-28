@@ -9,5 +9,12 @@ const app = axios.create({
   baseURL,
   withCredentials: true
 })
+// Axiosのヘッダをここで設定する。
+axios.defaults.headers.common = {
+  'X-Requested-With': 'XMLHttpRequest',
+  'Content-Type': 'application/json',
+  'Access-Control-Allow-Origin': '*'
+}
+axios.defaults.withCredentials = true
 
 export default app
