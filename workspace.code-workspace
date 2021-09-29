@@ -7,7 +7,20 @@
 			"path": "../mekuri_api"
 		}
 	],
-	"settings": {},
+	"settings": {
+		"comments": "eslintの自動保存",
+		"eslint.autoFixOnSave": true,
+		"eslint.validate": [
+		  {
+			"language": "vue",
+			"autoFix": true
+		  }
+		],
+		"comments": "vueファイル内のJavaScriptに対しVeturを無効にする",
+		"vetur.format.defaultFormatter.js": "none",
+		"comments": "Vscodeの自動保存なし",
+		"editor.formatOnSave": false
+	},
 	"launch": {
 		"version": "0.2.0",
 		"configurations": [
