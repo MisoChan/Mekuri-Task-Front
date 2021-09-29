@@ -72,7 +72,7 @@ export default {
   // DOMが出来上がる前にやっとく処理
   created () {
     axios
-      .get('/task_lists/show')
+      .get('/tasks', { withCredentials: true })
       .then((response) => (this.tasklist = response.data))
   },
 

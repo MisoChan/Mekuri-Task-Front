@@ -46,11 +46,11 @@ export default {
   methods: {
     request_login () {
       const params = new URLSearchParams()
-      params.append('mail_address', this.user_email)
+      params.append('mail', this.user_email)
       params.append('password', this.user_pass)
       axios.post('/login', params).then(response => {
         // タスクリストにとりあえず飛ばす
-        this.router.push('/tasklist')
+        this.$router.push('/tasklist')
       })
     }
   }
