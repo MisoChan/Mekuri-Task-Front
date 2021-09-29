@@ -7,6 +7,7 @@ const baseURL = process.env.VUE_APP_API_URL
 // axiosのインスタンスを作る
 const app = axios.create({
   baseURL,
+  timeout: 10000,
   withCredentials: true
 })
 // Axiosのヘッダをここで設定する。
@@ -14,6 +15,7 @@ axios.defaults.headers.common = {
   'X-Requested-With': 'XMLHttpRequest',
   'Content-Type': 'application/json',
   'Access-Control-Allow-Origin': '*'
+
 }
 axios.defaults.withCredentials = true
 
