@@ -44,8 +44,8 @@
 <style scoped src="@/assets/css/task_lists.css"></style>
 <script>
 import axios from '@/util/mekuri_common_axios'
-import Taskinput from '@/components/Taskinput.vue'
-import Taskplan from '@/components/TaskPlans.vue'
+import Taskinput from '@/components/Tasks/Taskinput.vue'
+import Taskplan from '@/components/Tasks/TaskPlans.vue'
 
 export default {
 
@@ -73,7 +73,7 @@ export default {
   created () {
     axios
       .get('/tasks', { withCredentials: true })
-      .then((response) => (this.tasklist = response.data))
+      .then((response) => (this.tasklist = response.data.result))
   },
 
   // DOMが出来上がった時点の処理

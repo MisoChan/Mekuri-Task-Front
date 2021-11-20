@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import Login from '../views/login.vue'
 import Tasklist from '@/views/task_list.vue'
+
 const routes = [
   {
     path: '/',
@@ -14,9 +15,16 @@ const routes = [
     component: Login
   },
   {
-    path: '/tasklist',
-    name: 'Tasklist',
-    component: Tasklist
+    path: '/main',
+    name: 'Main',
+    component: () => import(/* webpackChunkName: "main" */ '../views/CommonView/Main.vue'),
+    children: [
+      {
+        path: 'tasklist',
+        name: 'Tasklist',
+        component: Tasklist
+      }
+    ]
   },
 
   {
@@ -31,7 +39,7 @@ const routes = [
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
-  routes
+  routes: routes
 })
 
 export default router

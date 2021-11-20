@@ -19,7 +19,7 @@
 
         <li>
           <div>
-            <button id="button_login_submit" @click="request_login()">
+            <button id="button_login_submit" @click="request_login()" @keydown.enter="request_login()">
               ログイン
             </button>
             <a>パスワード忘れた…</a>
@@ -50,7 +50,7 @@ export default {
       params.append('password', this.user_pass)
       axios.post('/login', params).then(response => {
         // タスクリストにとりあえず飛ばす
-        this.$router.push('/tasklist')
+        this.$router.push('/Main/tasklist')
       })
     }
   }

@@ -1,18 +1,6 @@
 <template>
   <!-- タスク入力部分 -->
-  <div id="task_input_box" class="tasks">
-    <div id="head_title table-responsive">
-      <table class="table table-borderless ">
-        <tr>
-          <td class="col-10">{{ today }} のタスク一覧</td>
-
-          <td align="right">
-            + ADD TASK
-          </td>
-        </tr>
-      </table>
-
-      <hr />
+  <div class="task_input_box">
     </div>
     <ul style="list-style: none">
       <li class="task_input_li">
@@ -26,7 +14,8 @@
               placeholder="タスク タイトル"
               @keydown.prevent.enter="selectId('taskhead_timeinput_from')"
             />
-
+          </li>
+          <li>
             <input
               type="text"
               id="taskhead_timeinput_from"
@@ -104,7 +93,6 @@
         登録
       </button>
     </div>
-  </div>
 </template>
 
 <script>

@@ -12,26 +12,26 @@
           @change="checkHeaders(item.id)"
         />
         <label for="checkdone" class="task_head_text">
-          {{ item.title }}
+          {{ item.task_title }}
         </label>
       </li>
 
       <ul
-        v-for="details in item.task_plan_lists"
-        v-bind:key="details.id"
+        v-for="details in item.task_users"
+        v-bind:key="details.task_id"
         style="list-style: none"
         class="task_detail"
       >
         <input
           type="checkbox"
           class="tasklist_checkbox"
-          :id="details.id"
+          :id="details.user_id"
           :value="details.id"
           :data-task-header="item.id"
           @change="planCheckBoxSelected(item.id, details.id)"
         />
         <label for="checkdone" class="task_detail_text">
-          {{ details.title }}
+          {{ details.user_name}}
         </label>
       </ul>
     </ul>
