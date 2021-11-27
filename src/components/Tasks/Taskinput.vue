@@ -1,89 +1,77 @@
 <template>
   <!-- タスク入力部分 -->
   <div class="task_input_box">
-    </div>
-    <ul style="list-style: none">
-      <li class="task_input_li">
-        <div class="head_timeset">
-          <li class="task_input_li ">
-            <input
-              type="text"
-              id="taskhead_titleinput"
-              class="col-8"
-              v-model="task_head_title"
-              placeholder="タスク タイトル"
-              @keydown.prevent.enter="selectId('taskhead_timeinput_from')"
-            />
-          </li>
-          <li>
-            <input
-              type="text"
-              id="taskhead_timeinput_from"
-              v-model="task_date_begin_time"
-              class="task_input_times"
-              placeholder="開始時間"
-              @keydown.prevent.enter="selectId('taskhead_timeinput_to')"
-            />
-            <a>- ></a>
-            <input
-              type="text"
-              id="taskhead_timeinput_to"
-              v-model="task_date_end_time"
-              class="task_input_times"
-              placeholder="終了時間"
-            />
-          </li>
-          <li>
-            <input
-              type="text"
-              id="taskhead_plansinput"
-              v-model="task_head_memo"
-              class="col-11"
-              placeholder="メモを入力…"
-            />
-          </li>
-        </div>
-      </li>
-      <hr />
-      <div v-for="(plan, index) in taskplans" v-bind:key="plan.key">
-        <li class="task_input_li task_plans" v-bind:data-planid="plan.key">
-          <input
-            type="text"
-            class="col-9 taskplan_titles"
-            v-model="plan.title"
-            placeholder="内容を入力…"
-            v-bind:id="plan.key"
-            @keydown.prevent.enter="selectId(plan.key + '_TIME')"
-          />
-          <input
-            type="text"
-            class="col-2"
-            v-model="plan.reqtime"
-            v-bind:id="plan.key + '_TIME'"
-            v-bind:data-nextkey="plan.nextkey"
-            @keypress="validateNum"
-            @input="plan.reqtime = format(plan.reqtime)"
-            @keydown.prevent.enter="dupeTaskPlanLists(index)"
-            @keydown.prevent.left="reverseTaskPlanInput(index)"
-            placeholder="所要時間（分）"
-          />
-          <button
-            type="button"
-            class="btn btn-primary plan_delete"
-            @click="deleteTaskPlan(index)"
-          >
-            削除
-          </button>
-        </li>
+    <div class="task_input_wrapper">
+      <div class="task_input_upper">
+        <input
+          type="text"
+          class="task_title"
+          v-model="task_head_title"
+          placeholder="タスク タイトル"
+          @keydown.prevent.enter="selectId('taskhead_timeinput_from')"
+        />
       </div>
-    </ul>
-    <ul style="list-style: none">
-      <li class="task_input_li">
-        <button type="button" class="btn btn-primary" @click="dupeTaskPlan()">
-          こまかい内容追加
-        </button>
-      </li>
-    </ul>
+      <div class="task_input_middle_upper">
+        <input
+          type="text"
+          id="taskhead_timeinput_from"
+          v-model="task_date_begin_time"
+          class="task_input_times"
+          placeholder="開始時間"
+          @keydown.prevent.enter="selectId('taskhead_timeinput_to')"
+        />
+        <a>- ></a>
+        <input
+          type="text"
+          id="taskhead_timeinput_to"
+          v-model="task_date_end_time"
+          class="task_input_times"
+          placeholder="終了時間"
+        />
+      </div>
+      <div class="task_input_bottom">
+        <input
+          type="text"
+          id="taskhead_plansinput"
+          v-model="task_head_memo"
+          class="col-11"
+          placeholder="メモを入力…"
+        />
+        <div v-for="(plan, index) in taskplans" v-bind:key="plan.key" class="task_details">
+            <input
+              type="text"
+              class="col-9 taskplan_titles"
+              v-model="plan.title"
+              placeholder="内容を入力…"
+              v-bind:id="plan.key"
+              @keydown.prevent.enter="selectId(plan.key + '_TIME')"
+            />
+            <input
+              type="text"
+              class="col-2"
+              v-model="plan.reqtime"
+              v-bind:id="plan.key + '_TIME'"
+              v-bind:data-nextkey="plan.nextkey"
+              @keypress="validateNum"
+              @input="plan.reqtime = format(plan.reqtime)"
+              @keydown.prevent.enter="dupeTaskPlanLists(index)"
+              @keydown.prevent.left="reverseTaskPlanInput(index)"
+              placeholder="所要時間（分）"
+            />
+            <button
+              type="button"
+              class="btn btn-primary plan_delete"
+              @click="deleteTaskPlan(index)"
+            >
+              削除
+            </button>
+
+          <button type="button" class="btn btn-primary" @click="dupeTaskPlan()">
+            こまかい内容追加
+          </button>
+        </div>
+      </div>
+    </div>
     <div class="text-right">
       <button
         type="button"
@@ -93,6 +81,7 @@
         登録
       </button>
     </div>
+  </div>
 </template>
 
 <script>
