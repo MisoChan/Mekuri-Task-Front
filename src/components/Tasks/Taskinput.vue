@@ -29,6 +29,7 @@
           placeholder="終了時間"
         />
       </div>
+      <form name="task_details">
       <div class="task_input_bottom">
         <input
           type="text"
@@ -71,6 +72,7 @@
           </button>
         </div>
       </div>
+      </form>
     </div>
     <div class="text-right">
       <button
@@ -83,7 +85,9 @@
     </div>
   </div>
 </template>
+<style lang="scss" scoped src="@/assets/sass/components/tasks/Taskinput.scss">
 
+</style>
 <script>
 import axios from '@/util/mekuri_common_axios'
 import Mixins from '@/mixins/common_vue_mixin.js'

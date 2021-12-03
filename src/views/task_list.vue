@@ -1,5 +1,5 @@
 <template>
-  <div class="row">
+
     <!-- メイン部分  -->
     <div id="task_lists" class="col-9">
       <!-- タスク入力欄 -->
@@ -39,9 +39,8 @@
         </li>
       </ul>
     </div>
-  </div>
 </template>
-<style scoped src="@/assets/css/task_lists.css"></style>
+<style lang="scss" scoped src="@/assets/sass/task_lists.scss"></style>
 <script>
 import axios from '@/util/mekuri_common_axios'
 import Taskinput from '@/components/Tasks/Taskinput.vue'
