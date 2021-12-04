@@ -1,58 +1,59 @@
 <template>
+    <div>
+      <!-- メイン部分  -->
+      <div id="task_lists" class="col-9">
+        <!-- タスク入力欄 -->
+        <Taskinput></Taskinput>
 
-    <!-- メイン部分  -->
-    <div id="task_lists" class="col-9">
-      <!-- タスク入力欄 -->
-      <Taskinput></Taskinput>
+        <div v-for="itemProp in tasklist" v-bind:key="itemProp.id">
 
-      <div v-for="itemProp in tasklist" v-bind:key="itemProp.id">
-
-        <Taskplan :item='itemProp'></Taskplan>
+          <Taskplan :item='itemProp'></Taskplan>
+        </div>
       </div>
-    </div>
-    <div class="col-2 right">
-      <ul
-        id="right-sidebar"
-        class="nav-sidebar"
-        style="list-style: none; padding-left: 0"
-      >
-        <li class="mt-1">
-          <div id="calender">
-             <v-date-picker
-                :Format=DatePickerFormat
-                  v-model="today"
-                  is-required
-                />
-          </div>
-        </li>
+      <div class="col-2 right">
+        <ul
+          id="right-sidebar"
+          class="nav-sidebar"
+          style="list-style: none; padding-left: 0"
+        >
+          <li class="mt-1">
+            <div id="calender">
+              <v-date-picker
+                  :Format=DatePickerFormat
+                    v-model="today"
+                    is-required
+                  />
+            </div>
+          </li>
 
-        <li class="mt-5">
-          <div id="time_clock">
-            <a href="#">ここに現在時刻</a>
-          </div>
-        </li>
+          <li class="mt-5">
+            <div id="time_clock">
+              <a href="#">ここに現在時刻</a>
+            </div>
+          </li>
 
-        <li class="mt-2">
-          <button type="button" class="btn btn-primary">
-            タスク消化スタート！
-          </button>
-        </li>
-      </ul>
+          <li class="mt-2">
+            <button type="button" class="btn btn-primary">
+              タスク消化スタート！
+            </button>
+          </li>
+        </ul>
+      </div>
     </div>
 </template>
 <style lang="scss" scoped src="@/assets/sass/task_lists.scss"></style>
 <script>
-import axios from '@/util/mekuri_common_axios'
-import Taskinput from '@/components/Tasks/Taskinput.vue'
-import Taskplan from '@/components/Tasks/TaskPlans.vue'
+import axios from '@/util/mekuri_common_axios';
+import Taskinput from '@/components/Tasks/Taskinput.vue';
+import Taskplan from '@/components/Tasks/TaskPlans.vue';
 
 export default {
 
   components: {
     Taskinput,
-    Taskplan
+    Taskplan,
   },
-  data: function () {
+  data: function() {
     return {
 
       DatePickerFormat: 'yyyy-MM-dd',
@@ -60,28 +61,28 @@ export default {
       tasklist: [],
 
       modelConfig: {
-        type: 'string'
-      }
+        type: 'string',
+      },
 
-    }
+    };
   },
   methods: {
 
   },
   // DOMが出来上がる前にやっとく処理
-  created () {
+  created() {
     axios
-      .get('/tasks', { withCredentials: true })
-      .then((response) => (this.tasklist = response.data.result))
+        .get('/tasks', {withCredentials: true})
+        .then((response) => (this.tasklist = response.data.result));
   },
 
   // DOMが出来上がった時点の処理
-  mounted () {
+  mounted() {
 
   },
   // 値の変更監視
-  watch () {
+  watch() {
 
-  }
-}
+  },
+};
 </script>

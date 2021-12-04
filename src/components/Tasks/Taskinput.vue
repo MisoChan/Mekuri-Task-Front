@@ -89,11 +89,11 @@
 
 </style>
 <script>
-import axios from '@/util/mekuri_common_axios'
-import Mixins from '@/mixins/common_vue_mixin.js'
+import axios from '@/util/mekuri_common_axios';
+import Mixins from '@/mixins/common_vue_mixin.js';
 export default {
   mixins: [Mixins],
-  data: function () {
+  data: function() {
     return {
       task_head_title: '',
       task_date_begin: '',
@@ -101,45 +101,45 @@ export default {
       task_date_begin_time: '',
       task_date_end_time: '',
       task_head_memo: '',
-      taskplans: [{ key: 0, title: '', reqtime: '' }],
+      taskplans: [{key: 0, title: '', reqtime: ''}],
       today: new Date(),
       // 内容の追加を行ってもいいか
-      canAddPlan: false
-    }
+      canAddPlan: false,
+    };
   },
   methods: {
-    reverseTaskPlanInput (listIndex) {
+    reverseTaskPlanInput(listIndex) {
       // インデックスを取得
-      var index = this.taskplans[listIndex]
-      this.selectId(index.key)
+      const index = this.taskplans[listIndex];
+      this.selectId(index.key);
     },
 
     // 内容追加ボタン用 タスク内容の新規追加を行う
-    dupeTaskPlan () {
-      var listIndex = this.taskplans.length - 1
-      this.dupeTaskPlanLists(listIndex)
+    dupeTaskPlan() {
+      const listIndex = this.taskplans.length - 1;
+      this.dupeTaskPlanLists(listIndex);
     },
     // タスク内容の新規追加を行う。
-    async dupeTaskPlanLists (listIndex) {
-      var randid = Math.random()
-        .toString(36)
-        .slice(8)
+    async dupeTaskPlanLists(listIndex) {
+      const randid = Math.random()
+          .toString(36)
+          .slice(8);
       // インデックスを取得
-      var index = this.taskplans[listIndex]
+      const index = this.taskplans[listIndex];
 
-      var canSelect = false
-      var canAddPlan = false
-      var isTitleInput = false
-      var isReqTimeInput = false
+      let canSelect = false;
+      let canAddPlan = false;
+      let isTitleInput = false;
+      let isReqTimeInput = false;
 
       // リストに何もないならここで新規作成
       if (!index) {
         // empty→追加
-        this.addTaskPlan(randid)
-        canAddPlan = true
+        this.addTaskPlan(randid);
+        canAddPlan = true;
       } else {
-        isTitleInput = !index.title
-        isReqTimeInput = !index.reqtime
+        isTitleInput = !index.title;
+        isReqTimeInput = !index.reqtime;
       }
 
       // 直近の入力項目がEmptyではない？
@@ -147,51 +147,51 @@ export default {
         // 次のインデックスが存在する？
         if (listIndex === this.taskplans.length - 1) {
           // empty→追加
-          this.addTaskPlan(randid)
-          canAddPlan = true
+          this.addTaskPlan(randid);
+          canAddPlan = true;
         } else {
-          canSelect = true
+          canSelect = true;
         }
       }
       // DOM が更新されるのを待つ
-      await this.$nextTick()
+      await this.$nextTick();
       // 選択可能？
       if (canSelect) {
-        var nextIndex = this.taskplans[listIndex + 1].key
-        this.selectId(nextIndex)
+        const nextIndex = this.taskplans[listIndex + 1].key;
+        this.selectId(nextIndex);
       } else if (canAddPlan) {
         // それとも新規追加？
-        var plans = document.getElementById(randid)
-        plans.select()
+        const plans = document.getElementById(randid);
+        plans.select();
       }
     },
 
-    async addTaskPlan (randid) {
-      var taskplanDatatemplate = { key: randid, title: '', reqtime: '' }
+    async addTaskPlan(randid) {
+      const taskplanDatatemplate = {key: randid, title: '', reqtime: ''};
 
-      this.taskplans.push(taskplanDatatemplate)
+      this.taskplans.push(taskplanDatatemplate);
     },
 
     // タスク内容の削除を行う。
-    deleteTaskPlan (index) {
-      this.taskplans.splice(index, 1)
+    deleteTaskPlan(index) {
+      this.taskplans.splice(index, 1);
     },
     // タスクリストの登録処理
-    sendAddTaskRequest: function () {
+    sendAddTaskRequest: function() {
       axios
-        .post('/task_lists', {
-          task_head_title: this.task_head_title,
-          task_date_begin: this.task_date_begin,
-          task_date_end: this.task_date_end,
-          task_head_memo: this.task_head_memo,
-          task_date_begin_time: this.task_date_begin_time,
-          task_date_end_time: this.task_date_end_time,
-          task_plans: this.taskplans
-        })
-        .then(function (response) {
-          console.log(response)
-        })
-    }
-  }
-}
+          .post('/task_lists', {
+            task_head_title: this.task_head_title,
+            task_date_begin: this.task_date_begin,
+            task_date_end: this.task_date_end,
+            task_head_memo: this.task_head_memo,
+            task_date_begin_time: this.task_date_begin_time,
+            task_date_end_time: this.task_date_end_time,
+            task_plans: this.taskplans,
+          })
+          .then(function(response) {
+            console.log(response);
+          });
+    },
+  },
+};
 </script>
