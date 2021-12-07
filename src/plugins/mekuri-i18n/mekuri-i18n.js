@@ -1,4 +1,4 @@
 export default {
-  install(app, option) {
-  },
-};
+  install (app, option) {
+  }
+}

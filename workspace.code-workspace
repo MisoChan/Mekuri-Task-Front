@@ -2,9 +2,6 @@
 	"folders": [
 		{
 			"path": "."
-		},
-		{
-			"path": "../mekuri_api"
 		}
 	],
 	"settings": {
@@ -19,7 +16,10 @@
 		"comments": "vueファイル内のJavaScriptに対しVeturを無効にする",
 		"vetur.format.defaultFormatter.js": "none",
 		"comments": "Vscodeの自動保存なし",
-		"editor.formatOnSave": false
+		"editor.formatOnSave": false,
+		"editor.codeActionsOnSave": {
+			"source.fixAll.eslint": true
+		}
 	},
 	"launch": {
 		"version": "0.2.0",

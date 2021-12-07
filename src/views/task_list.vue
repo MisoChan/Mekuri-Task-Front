@@ -43,17 +43,17 @@
 </template>
 <style lang="scss" scoped src="@/assets/sass/task_lists.scss"></style>
 <script>
-import axios from '@/util/mekuri_common_axios';
-import Taskinput from '@/components/Tasks/Taskinput.vue';
-import Taskplan from '@/components/Tasks/TaskPlans.vue';
+import axios from '@/util/mekuri_common_axios'
+import Taskinput from '@/components/Tasks/Taskinput.vue'
+import Taskplan from '@/components/Tasks/TaskPlans.vue'
 
 export default {
 
   components: {
     Taskinput,
-    Taskplan,
+    Taskplan
   },
-  data: function() {
+  data: function () {
     return {
 
       DatePickerFormat: 'yyyy-MM-dd',
@@ -61,28 +61,28 @@ export default {
       tasklist: [],
 
       modelConfig: {
-        type: 'string',
-      },
+        type: 'string'
+      }
 
-    };
+    }
   },
   methods: {
 
   },
   // DOMが出来上がる前にやっとく処理
-  created() {
+  created () {
     axios
-        .get('/tasks', {withCredentials: true})
-        .then((response) => (this.tasklist = response.data.result));
+      .get('/tasks', { withCredentials: true })
+      .then((response) => (this.tasklist = response.data.result))
   },
 
   // DOMが出来上がった時点の処理
-  mounted() {
+  mounted () {
 
   },
   // 値の変更監視
-  watch() {
+  watch () {
 
-  },
-};
+  }
+}
 </script>

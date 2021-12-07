@@ -1,5 +1,6 @@
 $background_color : #fafafa;
-
+$hover_focus_under_color : #9c9c9c;
+$input_bottom_px : 2px;
 .task_input_box {
    width: 100%;
    border: 1px solid;
@@ -9,14 +10,14 @@ $background_color : #fafafa;
         outline: none;
         background: $background_color;
         border: none;
-        border-bottom: 2px solid $background_color;
+        border-bottom: $input_bottom_px solid $background_color;
         &:hover{
             
-            border-bottom: 2px solid #9c9c9c;
+            border-bottom: $input_bottom_px solid $hover_focus_under_color;
         }
         &:focus{
             outline: none;
-            border-bottom: 2px solid #9c9c9c;
+            border-bottom: $input_bottom_px solid $hover_focus_under_color;
         }
         
     }
@@ -29,4 +30,7 @@ $background_color : #fafafa;
     padding: 0em;
     font-size :26px;
     width: 95%; 
+}
+.task_details{
+    border: 1px solid #ccc; /* 枠線 */
 }

@@ -30,29 +30,29 @@
   </div>
 </template>
 
-<style scoped src="@/assets/css/login.css"></style>
+<style lang="scss" scoped src="@/assets/sass/login.scss"></style>
 
 <script>
-import Mixins from '@/mixins/common_vue_mixin.js';
-import axios from '@/util/mekuri_common_axios';
+import Mixins from '@/mixins/common_vue_mixin.js'
+import axios from '@/util/mekuri_common_axios'
 export default {
   mixins: [Mixins],
-  data() {
+  data () {
     return {
       user_email: '',
-      user_pass: '',
-    };
+      user_pass: ''
+    }
   },
   methods: {
-    request_login() {
-      const params = new URLSearchParams();
-      params.append('mail', this.user_email);
-      params.append('password', this.user_pass);
+    request_login () {
+      const params = new URLSearchParams()
+      params.append('mail', this.user_email)
+      params.append('password', this.user_pass)
       axios.post('/login', params).then((response) => {
         // タスクリストにとりあえず飛ばす
-        this.$router.push('/Main/tasklist');
-      });
-    },
-  },
-};
+        this.$router.push('/Main/tasklist')
+      })
+    }
+  }
+}
 </script>

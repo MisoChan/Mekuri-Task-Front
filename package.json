@@ -56,7 +56,7 @@
       "parser": "babel-eslint"
     },
     "rules": {
-      "vue/multi-word-component-name": "off"
+      "vue/multi-word-component-names": "off"
     },
     "overrides": [
       {
