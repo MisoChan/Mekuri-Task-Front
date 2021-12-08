@@ -31,6 +31,30 @@ $input_bottom_px : 2px;
     font-size :26px;
     width: 95%; 
 }
+/**タスク手順詳細**/
 .task_details{
     border: 1px solid #ccc; /* 枠線 */
+    padding : 0.5em 0.5em 0.5em;
+}
+.taskplan_titles{
+    
+    font-size : 15px;
+    width : 30% 
+}
+.task_detail_memo {
+    padding: 0.5em ;
+    outline: none;
+    background: $background_color;
+    border: none;
+    resize: none;
+    
+    width: 100%;
+    border-bottom: $input_bottom_px solid $background_color;
+    &:hover{
+        border: 0.5px solid $hover_focus_under_color;
+        border-bottom: $input_bottom_px solid $hover_focus_under_color;
+    }
+    &:focus{
+        border-bottom: $input_bottom_px solid $hover_focus_under_color;
+    }
 }
