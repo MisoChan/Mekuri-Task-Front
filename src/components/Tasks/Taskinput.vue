@@ -80,7 +80,7 @@
           </li>
 
         </ul>
-          <button type="button" class="btn btn-primary" @click="dupeTaskPlan()">
+          <button type="button" class="button_primary" @click="dupeTaskPlan()">
             こまかい内容追加
           </button>
       </div>

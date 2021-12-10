@@ -1,7 +1,7 @@
 <template>
-    <div>
+    <div id="task_page">
       <!-- メイン部分  -->
-      <div id="task_lists" class="col-9">
+      <div id="main_task_lists">
         <!-- タスク入力欄 -->
         <Taskinput></Taskinput>
 
@@ -10,7 +10,7 @@
           <Taskplan :item='itemProp'></Taskplan>
         </div>
       </div>
-      <div class="col-2 right">
+      <div class="right_side_menu">
         <ul
           id="right-sidebar"
           class="nav-sidebar"

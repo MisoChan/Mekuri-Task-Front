@@ -1,60 +1,69 @@
-$background_color : #fafafa;
-$hover_focus_under_color : #9c9c9c;
-$input_bottom_px : 2px;
+$background_color: #fafafa;
+$hover_focus_under_color: #9c9c9c;
+$input_bottom_px: 2px;
+
+
 .task_input_box {
-   width: 100%;
-   border: 1px solid;
-   padding: 0.5em ;
-   background: $background_color;
-    & input[type="text"]{
-        outline: none;
-        background: $background_color;
-        border: none;
-        border-bottom: $input_bottom_px solid $background_color;
-        &:hover{
-            
-            border-bottom: $input_bottom_px solid $hover_focus_under_color;
-        }
-        &:focus{
-            outline: none;
-            border-bottom: $input_bottom_px solid $hover_focus_under_color;
-        }
-        
+  width: 98.6%;
+  border: 1px solid;
+  padding: 0.3em;
+  background: $background_color;
+  box-sizing: border-box;
+  & input[type="text"] {
+    outline: none;
+    padding: 0em;
+    background: $background_color;
+    border: none;
+    border-bottom: $input_bottom_px solid $background_color;
+    &:hover {
+      border-bottom: $input_bottom_px solid $hover_focus_under_color;
     }
-    
-    
+    &:focus {
+      outline: none;
+      border-bottom: $input_bottom_px solid $hover_focus_under_color;
+    }
+  }
 }
 
 .task_title {
-    margin: 0.1em 0.2em 0.1em 0.2em;
-    padding: 0em;
-    font-size :26px;
-    width: 95%; 
+  margin: 0.1em 0.2em 0.1em 0.2em;
+  padding: 0em;
+  font-size: 20px;
+  width: 95%;
+  font-weight: bold;
 }
 /**タスク手順詳細**/
-.task_details{
-    border: 1px solid #ccc; /* 枠線 */
-    padding : 0.5em 0.5em 0.5em;
+.task_details {
+  border: 1px solid #ccc; /* 枠線 */
+  padding: 0.5em 0.5em 0.5em;
 }
-.taskplan_titles{
-    
-    font-size : 15px;
-    width : 30% 
+.taskplan_titles {
+  font-size: 15px;
+  width: 30%;
+
 }
+
 .task_detail_memo {
-    padding: 0.5em ;
-    outline: none;
-    background: $background_color;
-    border: none;
-    resize: none;
-    
-    width: 100%;
-    border-bottom: $input_bottom_px solid $background_color;
-    &:hover{
-        border: 0.5px solid $hover_focus_under_color;
-        border-bottom: $input_bottom_px solid $hover_focus_under_color;
-    }
-    &:focus{
-        border-bottom: $input_bottom_px solid $hover_focus_under_color;
-    }
+  padding: 0.5em;
+  outline: none;
+  background: $background_color;
+  border: none;
+  resize: none;
+  box-sizing: border-box;
+
+  width: 100%;
+  border-bottom: $input_bottom_px solid $background_color;
+  &:hover {
+    border: 0.5px solid $hover_focus_under_color;
+    border-bottom: $input_bottom_px solid $hover_focus_under_color;
+  }
+  &:focus {
+    border-bottom: $input_bottom_px solid $hover_focus_under_color;
+  }
+}
+/**右側メニュー**/
+.right_side_menu {
+  width: 30%;
+  height: 100%;
+    display:float;
 }
