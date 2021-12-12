@@ -5,5 +5,6 @@ import store from './store'
 // import VueI18n from 'vue-i18n'
 // import messages from '@/locales/string.json'
 require('@/assets/sass/base.scss')
+require('@/assets/sass/nomalize.scss')
 
 createApp(App).use(store).use(router).mount('#app')
