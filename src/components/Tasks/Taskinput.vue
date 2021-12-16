@@ -20,7 +20,7 @@
           placeholder="開始時間"
           @keydown.prevent.enter="selectId('taskhead_timeinput_to')"
         />
-        <a>- ></a>
+        <a>~</a>
         <input
           type="text"
           id="taskhead_timeinput_to"
@@ -29,7 +29,7 @@
           placeholder="終了時間"
         />
       </div>
-      <form name="task_details">
+      <form name="task_details" autocomplete="off">
       <div class="task_input_middle">
         <input
           type="text"
@@ -66,7 +66,7 @@
                 class="task_detail_memo"
                 v-bind:id="plan.key + '_MEMO'"
                 placeholder="何をするの？"
-                rows="4"
+                rows="3"
                 cols="60"
               ></textarea>
               <button
@@ -78,17 +78,19 @@
               </button>
 
           </li>
-
+          <li class="bottom_button">
+            <button type="button" id="add_detail" class="button_misc" @click="dupeTaskPlan()">＋ こまかい内容追加</button>
+          </li>
         </ul>
-          <button type="button" class="button_primary" @click="dupeTaskPlan()">
-            こまかい内容追加
-          </button>
       </div>
       </form>
     </div>
+    <br>
     <div class="task_input_bottoms">
+      <hr>
       <button
         type="button"
+        id="task_add_button"
         class="btn btn-primary "
         @click="sendAddTaskRequest()"
       >
