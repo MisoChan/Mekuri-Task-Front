@@ -6,12 +6,15 @@
   display: flex;
   flex-wrap: wrap;
   width: 100%;
+  height: 100%;
 }
 
 // メインのタスクリスト側設定
 #main_task_lists {
   width: 80%;
   padding: 3px;
+  height : 100%;
+  background-color: #FAF6FA;
 }
 
 /**右側メニュー**/
@@ -21,3 +24,4 @@
   width: 19%;
   height: 100%;
 }
+

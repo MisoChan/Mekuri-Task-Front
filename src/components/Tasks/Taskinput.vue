@@ -79,7 +79,7 @@
 
           </li>
           <li class="bottom_button">
-            <button type="button" id="add_detail" class="button_misc" @click="dupeTaskPlan()">＋ こまかい内容追加</button>
+            <button type="button" id="add_detail"  @click="dupeTaskPlan()">＋ こまかい内容追加</button>
           </li>
         </ul>
       </div>
@@ -91,7 +91,7 @@
       <button
         type="button"
         id="task_add_button"
-        class="btn btn-primary "
+        class="main_button"
         @click="sendAddTaskRequest()"
       >
         登録
