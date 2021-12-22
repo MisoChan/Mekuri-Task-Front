@@ -1,27 +1,33 @@
 // Place all the styles related to the task_lists controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+@use "commons/color_variables.scss" as color_variables;
 
 #task_page {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
+  box-sizing: border-box;
   height: 100%;
 }
 
 // メインのタスクリスト側設定
 #main_task_lists {
-  width: 80%;
-  padding: 3px;
+  width: 82%;
+  padding-inline: 40px;
   height : 100%;
-  background-color: #FAF6FA;
+  background-color: color_variables.$white_background;
 }
 
 /**右側メニュー**/
 .right_side_menu {
   display: flex;
   flex-wrap: wrap;
-  width: 19%;
+  min-width: 325px;
+  padding: 5px;
   height: 100%;
+  & #right-sidebar{
+    width: 100%;
+  }
 }
 

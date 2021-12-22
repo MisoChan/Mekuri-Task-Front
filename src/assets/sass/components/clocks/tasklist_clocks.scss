@@ -1,0 +1,21 @@
+@use "@/assets/sass/commons/color_variables.scss" as color_variables;
+
+.clock_window{
+    height: 100;
+    background-color: color_variables.$background_color;
+    
+    text-align: center;
+    & .task_clock_wrapper{
+        display: inline-block;
+
+          margin-right: auto;
+          margin-left: auto;
+        & .clock_time{
+            font-size: 54px;
+
+        }
+        & .clock_date{
+            font-size: 20px;
+        }
+    }
+}

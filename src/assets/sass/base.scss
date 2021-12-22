@@ -1,21 +1,24 @@
-$background_color : #EEEEEE;
+@use "commons/color_variables.scss" as color_variables;
+
 input[type="text"] {
     border: 1px solid;
     border-color: #9c9c9c;
     padding: 0.5em 0.5em 0.5em;
     margin: 0.2em;
     &:focus{
-        background: $background_color;
+        background: color_variables.$background_color;
     }
 }
 
 
 html {
     height: 100%;
-    background: $background_color;
+    background: color_variables.$background_color;
 }
   
-
+div {
+    box-sizing: border-box;
+}
 body {
 height: 100%;
 margin: 0;

@@ -27,9 +27,7 @@
           </li>
 
           <li class="mt-5">
-            <div id="time_clock">
-              <a href="#">ここに現在時刻</a>
-            </div>
+            <TaskListClock></TaskListClock>
           </li>
 
           <li class="mt-2">
@@ -46,12 +44,14 @@
 import axios from '@/util/mekuri_common_axios'
 import Taskinput from '@/components/Tasks/Taskinput.vue'
 import Taskplan from '@/components/Tasks/TaskPlans.vue'
+import TaskListClock from '@/components/Clocks/TasklistClock.vue'
 
 export default {
 
   components: {
     Taskinput,
-    Taskplan
+    Taskplan,
+    TaskListClock
   },
   data: function () {
     return {

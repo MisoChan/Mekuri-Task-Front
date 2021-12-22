@@ -2,11 +2,13 @@
   "en": {
     "message": {
       "hello": "hello world"
-    }
+    },
+    "dayOfWeek":  [ "Sun", "Mon", "Tsu", "Wed", "Thr", "Fri", "Sat" ]
   },
   "ja": {
     "message": {
       "hello": "こんにちは、世界"
-    }
+    },
+    "dayOfWeek":  [ "日", "月", "火", "水", "木", "金", "土" ]
   }
 }

@@ -1,21 +1,22 @@
-$background_color: #fafafa;
+@use "@/assets/sass/commons/color_variables.scss" as color_variables;
 $hover_focus_under_color: #9c9c9c;
 $input_bottom_px: 2px;
 
 
 .task_input_box {
   width: 98.6%;
-  border: 1px solid;
-  border-radius: 30px;
+  border: 0px solid;
+  border-radius: 20px;
   padding: 0.3em 3em  0.3em 3em ;
-  background: $background_color;
+  background: color_variables.$background_color;
+  box-shadow: 2px 2px 10px #BCBCBC;
   box-sizing: border-box;
     & input[type="text"]{
     outline: none;
     padding: 0em;
-    background: $background_color;
+    background: color_variables.$background_color;
     border: none;
-    border-bottom: $input_bottom_px solid $background_color;
+    border-bottom: $input_bottom_px solid color_variables.$background_color;
     &:hover {
       border-bottom: $input_bottom_px solid $hover_focus_under_color;
     }
@@ -48,13 +49,13 @@ $input_bottom_px: 2px;
 .task_detail_memo {
   padding: 0.5em;
   outline: none;
-  background: $background_color;
+  background: color_variables.$background_color;
   border: none;
   resize: none;
   box-sizing: border-box;
 
   width: 100%;
-  border-bottom: $input_bottom_px solid $background_color;
+  border-bottom: $input_bottom_px solid color_variables.$background_color;
   &:hover {
     border: 0.5px solid $hover_focus_under_color;
     border-bottom: $input_bottom_px solid $hover_focus_under_color;
@@ -69,7 +70,7 @@ $input_bottom_px: 2px;
   border-radius: 0;
   font-size: 17px;
   border-bottom: 2px solid $hover_focus_under_color;
-  background: $background_color;
+  background: color_variables.$background_color;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   -ms-border-radius: 0;
