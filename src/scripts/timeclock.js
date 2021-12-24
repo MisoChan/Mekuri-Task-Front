@@ -3,7 +3,7 @@ export default {
   getNowDate () {
     const date = new Date()
     return (
-      date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDay()
+      date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()
     )
   },
   getNowTime () {
@@ -17,6 +17,9 @@ export default {
   getDayOfWeek (language) {
     const date = new Date()
     return locale[language].dayOfWeek[date.getDay()]
+  },
+  getAllDayOfWeek (language) {
+    return locale[language].dayOfWeek
   },
   sliceDigit (regex, slice) {
     let zeros = ''
