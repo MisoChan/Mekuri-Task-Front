@@ -25,7 +25,9 @@
                   />
             </div>
           </li>
-
+          <li>
+            <TaskCalendar></TaskCalendar>
+          </li>
           <li class="mt-5">
             <TaskListClock></TaskListClock>
           </li>
@@ -45,13 +47,14 @@ import axios from '@/util/mekuri_common_axios'
 import Taskinput from '@/components/Tasks/Taskinput.vue'
 import Taskplan from '@/components/Tasks/TaskPlans.vue'
 import TaskListClock from '@/components/Clocks/TasklistClock.vue'
-
+import TaskCalendar from '@/components/Calendar/TaskCalendar.vue'
 export default {
 
   components: {
     Taskinput,
     Taskplan,
-    TaskListClock
+    TaskListClock,
+    TaskCalendar
   },
   data: function () {
     return {

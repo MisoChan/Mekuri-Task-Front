@@ -1,18 +1,17 @@
-import timeclock from '@/scripts/timeclock.js'
 export default {
-  getCalendarStrings (language, month) {
-    const weeks = timeclock.getAllDayOfWeek(language)
-  },
+  getCalendarStrings (year, month) {},
   getFullNumberOfWeeks (year, month) {
-    return Math.floor((this.getLastDateOfCalendar(year, month)) / 7)
+    return Math.floor(this.getLastDateOfCalendar(year, month) / 7)
   },
   getFirstDateOfCalendar (year, month) {
-    const date = new Date(year, month + 1, 1)
-    return date
+    const date = this.getLastDateOfCalendar(year, month - 1)
+
+    const firstMonthDay = new Date(date - date.getDay() + 1)
+
+    return firstMonthDay
   },
-  getLasDateOfCalendar (year, month) {
-    const date = new Date(year, month + 1, 0)
+  getLastDateOfCalendar (year, month) {
+    const date = new Date(year, month, 0)
     return date
   }
-
 }
