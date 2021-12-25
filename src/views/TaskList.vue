@@ -23,7 +23,7 @@
                     v-model="today"
                     is-required
                   />
-            </div>
+            </div>する
           </li>
           <li>
             <TaskCalendar></TaskCalendar>

@@ -9,7 +9,7 @@ export default {
     return {}
   },
   mounted: function () {
-    console.log(calendar.getFirstDateOfCalendar(2021, 12))
+    console.log(calendar.getLastDateOfCalendar(2022, 1))
   },
   methods: {}
 }
