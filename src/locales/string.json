@@ -3,7 +3,7 @@
     "message": {
       "hello": "hello world"
     },
-    "dayOfWeek":  [ "Sun", "Mon", "Tsu", "Wed", "Thr", "Fri", "Sat" ]
+    "dayOfWeek":  [ "Sun", "Mon", "Thu", "Wed", "Thr", "Fri", "Sat" ]
   },
   "ja": {
     "message": {
