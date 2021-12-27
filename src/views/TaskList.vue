@@ -1,30 +1,20 @@
 <template>
-    <div id="task_page">
+    <div class="task_page">
       <!-- メイン部分  -->
       <div id="main_task_lists">
         <!-- タスク入力欄 -->
         <Taskinput></Taskinput>
 
         <div v-for="itemProp in tasklist" v-bind:key="itemProp.id">
-
           <Taskplan :item='itemProp'></Taskplan>
         </div>
       </div>
       <div id="right_side_menu">
         <ul
-          id="right-sidebar"
+          id="right-sidebar_list"
           class="nav-sidebar"
           style="list-style: none; padding-left: 0"
         >
-          <li class="mt-1">
-            <div id="calender">
-              <v-date-picker
-                  :Format=DatePickerFormat
-                    v-model="today"
-                    is-required
-                  />
-            </div>
-          </li>
           <li>
             <TaskCalendar></TaskCalendar>
           </li>
