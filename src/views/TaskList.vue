@@ -10,7 +10,7 @@
           <Taskplan :item='itemProp'></Taskplan>
         </div>
       </div>
-      <div class="right_side_menu">
+      <div id="right_side_menu">
         <ul
           id="right-sidebar"
           class="nav-sidebar"

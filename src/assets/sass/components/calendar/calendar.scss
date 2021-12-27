@@ -1,0 +1,28 @@
+@use "@/assets/sass/commons/color_variables.scss" as color_variables;
+
+#task_calendar {
+    box-shadow: 5px 5px 10px #bcbcbc;
+    box-sizing: border-box;
+    border-radius: 300px;
+    
+  & .mini_calendar {
+    border-collapse: collapse;
+    border-spacing: 0;
+    
+    width: 100%;
+    height: 100%;
+    background: color_variables.$white_background;
+
+    & > thead tr:first-child {
+      & th {
+        color: #fff;
+        background: color_variables.$accent_background_color;
+        padding: 0.5em;
+      }
+    }
+
+    & > tbody tr > td {
+      text-align: center;
+    }
+  }
+}
