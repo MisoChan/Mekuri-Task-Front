@@ -25,8 +25,8 @@
           </li>
 
           <li class="mt-2">
-            <button type="button" class="btn btn-primary">
-              タスク消化スタート！
+            <button type="button" id="begin_work_button" class="btn_danger">
+              作業開始！
             </button>
           </li>
         </ul>

@@ -10,6 +10,10 @@ input[type="text"] {
     }
 }
 
+input[type="button"] {
+    border: 0px solid;
+}
+
 
 html {
     height: 100%;
@@ -41,3 +45,12 @@ margin: 0;
     padding: 0.3em;
 }
 
+.btn{
+
+}
+.btn_danger {
+    background-color: color_variables.$accent_color_red;
+    color: color_variables.$white_background;
+    border:none;
+    box-shadow: 2px 2px 4px #adadad;
+}
