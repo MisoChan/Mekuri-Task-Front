@@ -1,22 +1,25 @@
 @use "@/assets/sass/commons/color_variables.scss" as color_variables;
 
+$calendar_background: #d3d3d3;
+
 #task_calendar {
-    box-shadow: 5px 5px 10px #bcbcbc;
     box-sizing: border-box;
-    border-radius: 300px;
-    
+
+    border: 1px solid #CCCCCC;
+    height: 250px ;
+    background: color_variables.$background_color;
   & .mini_calendar {
     border-collapse: collapse;
     border-spacing: 0;
-    
-    width: 100%;
+    box-sizing: border-box;
     height: 100%;
-    background: color_variables.$white_background;
+    width: 100%;
+    background: color_variables.$background_color;
 
     & > thead tr:first-child {
       & th {
         color: #fff;
-        background: color_variables.$accent_background_color;
+        background: color_variables.$main_color;
         padding: 0.5em;
       }
     }
@@ -25,4 +28,8 @@
       text-align: center;
     }
   }
+
+}
+.calendar_yearmonth{
+  font-size: 25px;
 }

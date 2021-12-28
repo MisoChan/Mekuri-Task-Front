@@ -1,5 +1,7 @@
 <template>
     <div class="task_page">
+      <!-- 題名部分 -->
+      <div id="task_add_date">{{task_date}}</div>
       <!-- メイン部分  -->
       <div id="main_task_lists">
         <!-- タスク入力欄 -->

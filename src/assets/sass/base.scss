@@ -2,7 +2,7 @@
 
 input[type="text"] {
     border: 1px solid;
-    border-color: #9c9c9c;
+    border-color: color_variables.$background_color;
     padding: 0.5em 0.5em 0.5em;
     margin: 0.2em;
     &:focus{
