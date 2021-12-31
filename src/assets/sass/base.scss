@@ -39,18 +39,34 @@ margin: 0;
     padding: 0;
 }
 
-.main_button{
-    width: 100px;
-    height: 40px;
-    padding: 0.3em;
+.btn_standard{
+    background-color: color_variables.$main_color;
+    color: color_variables.$white_background;
+    border:none;
+    box-shadow: 2px 2px 4px color_variables.$shadow_color_standard;
+    &:active{
+        background-color: color_variables.$main_color_activated;
+        box-shadow: none;
+    }
+
+    &:disabled{
+        background-color: color_variables.$main_color_disabled;
+    }
 }
 
-.btn{
 
-}
 .btn_danger {
     background-color: color_variables.$accent_color_red;
     color: color_variables.$white_background;
     border:none;
-    box-shadow: 2px 2px 4px #adadad;
+    box-shadow: 2px 2px 4px  color_variables.$shadow_color_standard;
+    &:active{
+        background-color: color_variables.$accent_color_red_activated;
+        box-shadow: none;
+    }
+
+    &:disabled{
+        background-color: color_variables.$accent_color_red_disabled;
+    }
+
 }

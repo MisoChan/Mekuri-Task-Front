@@ -91,7 +91,7 @@
       <button
         type="button"
         id="task_add_button"
-        class="main_button"
+        class="btn_standard"
         @click="sendAddTaskRequest()"
       >
         登録
