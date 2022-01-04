@@ -2,6 +2,4 @@
   <router-view/>
 </template>
 
-<style>
-
-</style>
+<style lang="scss" scoped src="@/assets/sass/nomalize.scss"></style>

@@ -30,16 +30,20 @@
         />
       </div>
       <form name="task_details" autocomplete="off">
-      <div class="task_input_middle">
-        <input
-          type="text"
-          id="taskhead_plansinput"
-          v-model="task_head_memo"
-          class="col-11"
-          placeholder="メモを入力…"
-        />
-        <ul class="task_details_list">
-          <li v-for="(plan, index) in taskplans" v-bind:key="plan.key" class="task_details">
+        <div class="task_input_middle">
+          <input
+            type="text"
+            id="taskhead_plansinput"
+            v-model="task_head_memo"
+            class="col-11"
+            placeholder="メモを入力…"
+          />
+          <ul class="task_details_list">
+            <li
+              v-for="(plan, index) in taskplans"
+              v-bind:key="plan.key"
+              class="task_details"
+            >
               <div>
                 <input
                   type="text"
@@ -76,37 +80,46 @@
               >
                 削除
               </button>
-
-          </li>
-          <li class="bottom_button">
-            <button type="button" id="add_detail"  @click="dupeTaskPlan()">＋ こまかい内容追加</button>
-          </li>
-        </ul>
-      </div>
+            </li>
+            <li class="bottom_button">
+              <button type="button" id="add_detail" @click="dupeTaskPlan()">
+                ＋ こまかい内容追加
+              </button>
+            </li>
+          </ul>
+        </div>
       </form>
+      <br />
+      <div class="task_input_bottoms">
+        <hr />
+        <button
+          type="button"
+          id="task_add_button"
+          class="btn_standard"
+          @click="sendAddTaskRequest()"
+        >
+          登録
+        </button>
+      </div>
     </div>
-    <br>
-    <div class="task_input_bottoms">
-      <hr>
-      <button
-        type="button"
-        id="task_add_button"
-        class="btn_standard"
-        @click="sendAddTaskRequest()"
-      >
-        登録
-      </button>
-    </div>
+
+    <TimeSum :childTasks="this.taskplans"></TimeSum>
   </div>
 </template>
-<style lang="scss" scoped src="@/assets/sass/components/tasks/Taskinput.scss">
-
-</style>
+<style
+  lang="scss"
+  scoped
+  src="@/assets/sass/components/tasks/Taskinput.scss"
+></style>
 <script>
 import axios from '@/util/mekuri_common_axios'
 import Mixins from '@/mixins/common_vue_mixin.js'
+import TimeSum from '@/components/Tasks/TaskTimeSum.vue'
 export default {
   mixins: [Mixins],
+  components: {
+    TimeSum
+  },
   data: function () {
     return {
       task_head_title: '',
