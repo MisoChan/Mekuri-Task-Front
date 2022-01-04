@@ -3,6 +3,7 @@
   <div class="task_input_box">
     <div class="task_input_wrapper">
       <div class="task_input_upper">
+        <span>
         <input
           type="text"
           class="task_title"
@@ -10,24 +11,18 @@
           placeholder="タスク タイトル"
           @keydown.prevent.enter="selectId('taskhead_timeinput_from')"
         />
+        </span>
+        <span>
+          <input
+            type="text"
+            id="taskhead_timeinput_to"
+            v-model="task_date_end_time"
+            class="task_input_times"
+            placeholder="期限"
+          />
+        </span>
       </div>
       <div class="task_input_middle_upper">
-        <input
-          type="text"
-          id="taskhead_timeinput_from"
-          v-model="task_date_begin_time"
-          class="task_input_times"
-          placeholder="開始時間"
-          @keydown.prevent.enter="selectId('taskhead_timeinput_to')"
-        />
-        <a>~</a>
-        <input
-          type="text"
-          id="taskhead_timeinput_to"
-          v-model="task_date_end_time"
-          class="task_input_times"
-          placeholder="終了時間"
-        />
       </div>
       <form name="task_details" autocomplete="off">
         <div class="task_input_middle">
@@ -36,7 +31,7 @@
             id="taskhead_plansinput"
             v-model="task_head_memo"
             class="col-11"
-            placeholder="メモを入力…"
+            placeholder="概要を一言で…"
           />
           <ul class="task_details_list">
             <li
@@ -103,7 +98,7 @@
       </div>
     </div>
 
-    <TimeSum :childTasks="this.taskplans"></TimeSum>
+    <TimeSum ref="tasksum" :childTasks="this.taskplans" ></TimeSum>
   </div>
 </template>
 <style
@@ -191,6 +186,9 @@ export default {
         const plans = document.getElementById(randid)
         plans.select()
       }
+
+      // 最後にタスクの合計時間の更新を通知
+      this.$refs.tasksum.countTaskTimeSummesion()
     },
 
     async addTaskPlan (randid) {
@@ -202,6 +200,7 @@ export default {
     // タスク内容の削除を行う。
     deleteTaskPlan (index) {
       this.taskplans.splice(index, 1)
+      this.$refs.tasksum.countTaskTimeSummesion()
     },
     // タスクリストの登録処理
     sendAddTaskRequest: function () {

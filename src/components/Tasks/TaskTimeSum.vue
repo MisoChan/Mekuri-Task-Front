@@ -17,20 +17,16 @@ export default {
       required: false
     }
   },
-  watch: {
-    childTasks: function (oldArray, newArray) {
-      console.log(newArray)
-      if (this.childTasks.length !== 0) {
-      }
-    }
-  },
   data: function () {
     return {
-      taskSum: 1
+      taskSum: 0
     }
   },
   methods: {
-    countTaskTimeSummesion () {}
+    // タスク内容更新時に合計時間を計算する
+    countTaskTimeSummesion () {
+      this.taskSum = this.childTasks.reduce((sum, element) => sum + Number(element.reqtime), 0)
+    }
   }
 }
 </script>
