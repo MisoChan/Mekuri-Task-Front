@@ -1,7 +1,7 @@
 @use "@/assets/sass/commons/color_variables.scss" as color_variables;
 $hover_focus_under_color: #9c9c9c;
 $input_bottom_px: 2px;
-
+$title_font_size: 24px;
 .task_input_box {
   display: grid;
   border: 0px solid;
@@ -44,8 +44,8 @@ input[type="text"] {
 .task_title {
   margin: 0.1em 0.2em 0.1em 0.2em;
   padding: 0em;
-  font-size: 25px;
-  width: 95%;
+  font-size: $title_font_size;
+  width: 70%;
   font-weight: bold;
 }
 /**タスク手順詳細**/
@@ -54,7 +54,7 @@ input[type="text"] {
   padding: 0.5em 0.5em 0.5em;
 }
 .taskplan_titles {
-  font-size: 15px;
+  font-size: 20px;
   width: 30%;
 }
 
@@ -115,4 +115,8 @@ input[type="text"] {
 
 .task_input_middle {
   min-height: 54px;
+}
+
+.task_time_limit {
+  font-size : $title_font_size;
 }

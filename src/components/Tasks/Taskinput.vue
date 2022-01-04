@@ -17,7 +17,7 @@
             type="text"
             id="taskhead_timeinput_to"
             v-model="task_date_end_time"
-            class="task_input_times"
+            class="task_time_limit"
             placeholder="期限"
           />
         </span>
