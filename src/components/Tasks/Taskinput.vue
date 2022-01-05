@@ -3,7 +3,6 @@
   <div class="task_input_box">
     <div class="task_input_wrapper">
       <div class="task_input_upper">
-        <span>
         <input
           type="text"
           class="task_title"
@@ -11,28 +10,23 @@
           placeholder="タスク タイトル"
           @keydown.prevent.enter="selectId('taskhead_timeinput_from')"
         />
-        </span>
-        <span>
-          <input
-            type="text"
-            id="taskhead_timeinput_to"
-            v-model="task_date_end_time"
-            class="task_time_limit"
-            placeholder="期限"
-          />
-        </span>
       </div>
-      <div class="task_input_middle_upper">
-      </div>
+      <input
+        type="text"
+        id="taskhead_timeinput_to"
+        v-model="task_date_end_time"
+        class="task_time_limit"
+        placeholder="期限"
+      />
+      <input
+        type="text"
+        id="taskhead_plansinput"
+        v-model="task_head_memo"
+        class="col-11"
+        placeholder="概要を一言で…"
+      />
       <form name="task_details" autocomplete="off">
         <div class="task_input_middle">
-          <input
-            type="text"
-            id="taskhead_plansinput"
-            v-model="task_head_memo"
-            class="col-11"
-            placeholder="概要を一言で…"
-          />
           <ul class="task_details_list">
             <li
               v-for="(plan, index) in taskplans"
@@ -98,7 +92,7 @@
       </div>
     </div>
 
-    <TimeSum ref="tasksum" :childTasks="this.taskplans" ></TimeSum>
+    <TimeSum ref="tasksum" :childTasks="this.taskplans"></TimeSum>
   </div>
 </template>
 <style
