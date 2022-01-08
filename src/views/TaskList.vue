@@ -54,7 +54,7 @@ export default {
       DatePickerFormat: 'yyyy-MM-dd',
       checkdone: [],
       tasklist: [],
-
+      pageNumber: 1,
       modelConfig: {
         type: 'string'
       }
@@ -67,7 +67,7 @@ export default {
   // DOMが出来上がる前にやっとく処理
   created () {
     axios
-      .get('/tasks', { withCredentials: true })
+      .get('/tasks', { pageNumber: this.pageNumber, withCredentials: true })
       .then((response) => (this.tasklist = response.data.result))
   },
 

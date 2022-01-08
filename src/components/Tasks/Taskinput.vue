@@ -3,28 +3,36 @@
   <div class="task_input_box">
     <div class="task_input_wrapper">
       <div class="task_input_upper">
-        <input
-          type="text"
-          class="task_title"
-          v-model="task_head_title"
-          placeholder="タスク タイトル"
-          @keydown.prevent.enter="selectId('taskhead_timeinput_from')"
-        />
+        <div id=task_title_wrapper>
+          <input
+            type="text"
+            class="task_title"
+            v-model="task_head_title"
+            placeholder="タスク タイトル"
+            @keydown.prevent.enter="selectId('taskhead_timeinput_from')"
+          />
+        </div>
+        <div class="task_input_middle">
+          <input
+            type="text"
+            id="taskhead_timeinput_to"
+            v-model="task_date_end_time"
+            class="task_time_limit"
+            placeholder="期限"
+          />
+          <input
+            type="text"
+            id="taskhead_plansinput"
+            v-model="task_head_memo"
+            class="col-11"
+            placeholder="概要を一言で…"
+          />
+        </div>
+        <div class="task_input_right">
+          <button type="button">がいよう</button>
+          <button type="button">りまいんど</button>
+        </div>
       </div>
-      <input
-        type="text"
-        id="taskhead_timeinput_to"
-        v-model="task_date_end_time"
-        class="task_time_limit"
-        placeholder="期限"
-      />
-      <input
-        type="text"
-        id="taskhead_plansinput"
-        v-model="task_head_memo"
-        class="col-11"
-        placeholder="概要を一言で…"
-      />
       <form name="task_details" autocomplete="off">
         <div class="task_input_middle">
           <ul class="task_details_list">
@@ -45,16 +53,24 @@
                 <input
                   type="text"
                   class="col-2"
-                  v-model="plan.reqtime"
-                  v-bind:id="plan.key + '_TIME'"
-                  v-bind:data-nextkey="plan.nextkey"
+                  v-model="plan.require_time"
+                  :id="plan.key + '_TIME'"
+                  :data-nextkey="plan.nextkey"
                   @keypress="validateNum"
-                  @input="plan.reqtime = format(plan.reqtime)"
+                  @input="plan.require_time = format(plan.require_time)"
                   @keydown.prevent.enter="dupeTaskPlanLists(index)"
                   @keydown.prevent.left="reverseTaskPlanInput(index)"
                   placeholder="所要時間（分）"
                 />
+                 <button
+                type="button"
+                class="btn btn-primary plan_delete"
+                @click="deleteTaskPlan(index)"
+              >
+                削除
+              </button>
               </div>
+
               <textarea
                 class="task_detail_memo"
                 v-bind:id="plan.key + '_MEMO'"
@@ -62,13 +78,7 @@
                 rows="3"
                 cols="60"
               ></textarea>
-              <button
-                type="button"
-                class="btn btn-primary plan_delete"
-                @click="deleteTaskPlan(index)"
-              >
-                削除
-              </button>
+
             </li>
             <li class="bottom_button">
               <button type="button" id="add_detail" @click="dupeTaskPlan()">
@@ -109,18 +119,31 @@ export default {
   components: {
     TimeSum
   },
+  watch: {
+    taskplans: {
+      handler (old, newValues) {
+        // 最後にタスクの合計時間の更新を通知
+        this.$refs.tasksum.countTaskTimeSummesion()
+      },
+      deep: true
+
+    }
+
+  },
   data: function () {
     return {
+
       task_head_title: '',
       task_date_begin: '',
       task_date_end: '',
       task_date_begin_time: '',
       task_date_end_time: '',
       task_head_memo: '',
-      taskplans: [{ key: 0, title: '', reqtime: '' }],
+      taskplans: [{ key: 0, title: '', require_time: '' }],
       today: new Date(),
       // 内容の追加を行ってもいいか
       canAddPlan: false
+
     }
   },
   methods: {
@@ -155,7 +178,7 @@ export default {
         canAddPlan = true
       } else {
         isTitleInput = !index.title
-        isReqTimeInput = !index.reqtime
+        isReqTimeInput = !index.require_time
       }
 
       // 直近の入力項目がEmptyではない？
@@ -180,13 +203,10 @@ export default {
         const plans = document.getElementById(randid)
         plans.select()
       }
-
-      // 最後にタスクの合計時間の更新を通知
-      this.$refs.tasksum.countTaskTimeSummesion()
     },
 
     async addTaskPlan (randid) {
-      const taskplanDatatemplate = { key: randid, title: '', reqtime: '' }
+      const taskplanDatatemplate = { key: randid, title: '', require_time: '' }
 
       this.taskplans.push(taskplanDatatemplate)
     },
@@ -199,17 +219,14 @@ export default {
     // タスクリストの登録処理
     sendAddTaskRequest: function () {
       axios
-        .post('/task_lists', {
+        .post('/tasks', {
           task_head_title: this.task_head_title,
-          task_date_begin: this.task_date_begin,
-          task_date_end: this.task_date_end,
+          task_limit_date: this.task_date_begin,
           task_head_memo: this.task_head_memo,
-          task_date_begin_time: this.task_date_begin_time,
-          task_date_end_time: this.task_date_end_time,
-          task_plans: this.taskplans
+          task_plans: this.taskplans,
+          withCredentials: true
         })
         .then(function (response) {
-          console.log(response)
         })
     }
   }

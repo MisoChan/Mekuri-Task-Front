@@ -25,7 +25,7 @@ export default {
   methods: {
     // タスク内容更新時に合計時間を計算する
     countTaskTimeSummesion () {
-      this.taskSum = this.childTasks.reduce((sum, element) => sum + Number(element.reqtime), 0)
+      this.taskSum = this.childTasks.reduce((sum, element) => sum + Number(element.require_time), 0)
     }
   }
 }

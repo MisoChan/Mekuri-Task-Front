@@ -1,14 +1,7 @@
-
-import axios from 'axios'
 export default {
 
   created () {
-    // Axiosのヘッダをここで設定する。
-    axios.defaults.headers.common = {
-      'X-Requested-With': 'XMLHttpRequest',
-      'Content-Type': 'application/json'
-    }
-    axios.defaults.withCredentials = true
+
   },
   methods: {
     // InputBoxの選択をする。
