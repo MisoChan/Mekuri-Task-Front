@@ -35,7 +35,6 @@
 </template>
 <style lang="scss" scoped src="@/assets/sass/task_lists.scss"></style>
 <script>
-import axios from '@/util/mekuri_common_axios'
 import Taskinput from '@/components/Tasks/Taskinput.vue'
 import Taskplan from '@/components/Tasks/TaskPlans.vue'
 import TaskListClock from '@/components/Clocks/TasklistClock.vue'
@@ -65,9 +64,9 @@ export default {
 
   },
   // DOMが出来上がる前にやっとく処理
-  created () {
-    axios
-      .get('/tasks', { pageNumber: this.pageNumber, withCredentials: true })
+  created: function () {
+    this.$http
+      .get('/tasks', { params: { pageNumber: this.pageNumber } })
       .then((response) => (this.tasklist = response.data.result))
   },
 

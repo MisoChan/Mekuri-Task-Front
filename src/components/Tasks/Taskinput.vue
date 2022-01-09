@@ -111,7 +111,6 @@
   src="@/assets/sass/components/tasks/Taskinput.scss"
 ></style>
 <script>
-import axios from '@/util/mekuri_common_axios'
 import Mixins from '@/mixins/common_vue_mixin.js'
 import TimeSum from '@/components/Tasks/TaskTimeSum.vue'
 export default {
@@ -218,14 +217,12 @@ export default {
     },
     // タスクリストの登録処理
     sendAddTaskRequest: function () {
-      axios
+      this.$http
         .post('/tasks', {
           task_head_title: this.task_head_title,
-          task_limit_date: this.task_date_begin,
-          task_head_memo: this.task_head_memo,
-          task_plans: this.taskplans,
-          withCredentials: true
-        })
+          task_limit_date: this.task_date_end_time,
+          task_plans: this.taskplans
+        }, { withCredentials: true })
         .then(function (response) {
         })
     }

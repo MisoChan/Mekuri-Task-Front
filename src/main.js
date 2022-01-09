@@ -3,15 +3,33 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import axios from 'axios'
+import VueAxios from 'vue-axios'
 require('@/assets/sass/commons/color_variables.scss')
 require('@/assets/sass/base.scss')
 require('@/assets/sass/nomalize.scss')
 
-// Axiosのヘッダをここで設定する。
-axios.defaults.headers.common = {
-  'X-Requested-With': 'XMLHttpRequest',
-  'Content-Type': 'application/json'
-}
-axios.defaults.withCredentials = true
+// ベースURL
+const baseURL = process.env.VUE_APP_API_URL
 
-createApp(App).use(store).use(router).mount('#app')
+// TODO: デバッグ時のみこの設定をONにするようにする。
+
+const axiosApp = axios.create({
+  withCredentials: true,
+  baseURL,
+  timeout: 10000,
+  headers: {
+    'X-Requested-With': 'XMLHttpRequest',
+    'Content-Type': 'application/json;charset=UTF-8',
+    'REQUESTED-BY-MEKURI-APP': 'MEKURI_CREDENTIALS'
+  }
+})
+
+// // Axiosのヘッダをここで設定する。
+// axios.defaults.headers.common = {
+//   'X-Requested-With': 'XMLHttpRequest',
+//   'Content-Type': 'application/json'
+// }
+
+// axios.defaults.headers.withCredentials = true
+
+createApp(App).use(VueAxios, axiosApp).use(store).use(router).mount('#app')
