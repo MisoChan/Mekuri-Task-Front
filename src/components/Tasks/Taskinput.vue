@@ -135,7 +135,7 @@ export default {
       task_head_title: '',
       task_date_begin: '',
       task_date_end: '',
-      task_date_begin_time: '',
+      task_date_begin_time: new Date(),
       task_date_end_time: '',
       task_head_memo: '',
       taskplans: [{ key: 0, title: '', require_time: '' }],
@@ -219,9 +219,10 @@ export default {
     sendAddTaskRequest: function () {
       this.$http
         .post('/tasks', {
-          task_head_title: this.task_head_title,
+          task_title: this.task_head_title,
           task_limit_date: this.task_date_end_time,
-          task_plans: this.taskplans
+          task_plans: this.taskplans,
+          task_remind_datetime: ''
         }, { withCredentials: true })
         .then(function (response) {
         })

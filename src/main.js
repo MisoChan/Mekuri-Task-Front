@@ -20,7 +20,7 @@ const axiosApp = axios.create({
   headers: {
     'X-Requested-With': 'XMLHttpRequest',
     'Content-Type': 'application/json;charset=UTF-8',
-    'REQUESTED-BY-MEKURI-APP': 'MEKURI_CREDENTIALS'
+    'X-REQUESTED-BY-MEKURI-APP': ''
   }
 })
 
