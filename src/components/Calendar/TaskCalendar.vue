@@ -31,7 +31,7 @@ export default {
     }
   },
   mounted: function () {
-    this.weekday = timeclock.getAllDayOfWeek(this.$store.state.language)
+    this.weekday = timeclock.getAllDayOfWeek(this.$store.getters.getLanguage)
     const date = new Date()
     this.calendar_date = date.getFullYear() + ' / ' + (date.getMonth() + 1)
     this.calendarStrings = calendar.getCalendarStringsArrayByWeek(date.getFullYear(), (date.getMonth() + 1))

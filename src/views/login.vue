@@ -49,6 +49,9 @@ export default {
       params.append('mail', this.user_email)
       params.append('password', this.user_pass)
       axios.post('/login', params).then((response) => {
+        // セッション情報にログインデータを格納する
+        this.$store.commit('login_user', response.data)
+        console.log(this.$store.getters.getUser.language)
         // タスクリストにとりあえず飛ばす
         this.$router.push('/Main/tasklist')
       })
