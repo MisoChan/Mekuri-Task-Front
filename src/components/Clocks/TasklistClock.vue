@@ -15,7 +15,7 @@ export default {
   methods: {
     updateTime: function () {
       this.time = timeclock.getNowTime()
-      this.date = timeclock.getNowDate() + ' ' + timeclock.getDayOfWeek(this.$store.state.language)
+      this.date = timeclock.getNowDate() + ' ' + timeclock.getDayOfWeek(this.$store.getters.getLanguage)
       this.mili = timeclock.getMiliSec()
     }
   },

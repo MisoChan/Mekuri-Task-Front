@@ -217,14 +217,16 @@ export default {
     },
     // タスクリストの登録処理
     sendAddTaskRequest: function () {
+      const params = {
+        task_title: this.task_head_title,
+        task_limit_date: this.task_date_end_time,
+        task_plans: this.taskplans
+      }
       this.$http
-        .post('/tasks', {
-          task_title: this.task_head_title,
-          task_limit_date: this.task_date_end_time,
-          task_plans: this.taskplans,
-          task_remind_datetime: ''
-        }, { withCredentials: true })
+        .post('/tasks', params, { withCredentials: true })
         .then(function (response) {
+          // 登録処理が終わったら、親画面にEMITして結果通知する
+          this.$emit('SendSuccessed', params)
         })
     }
   }
