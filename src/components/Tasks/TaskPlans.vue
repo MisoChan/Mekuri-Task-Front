@@ -1,9 +1,9 @@
 <template>
   <!-- タスク一覧部分 -->
 
-  <div class="tasks">
-    <ul style="list-style: none">
-      <li class="task_header_li">
+  <div class="task_plans">
+
+      <div class="task_header">
         <input
           type="checkbox"
           class="taskheader_checkbox"
@@ -14,27 +14,7 @@
         <label for="checkdone" class="task_head_text">
           {{ item.task_title }}
         </label>
-      </li>
-
-      <ul
-        v-for="details in item.task_users"
-        v-bind:key="details.task_id"
-        style="list-style: none"
-        class="task_detail"
-      >
-        <input
-          type="checkbox"
-          class="tasklist_checkbox"
-          :id="details.user_id"
-          :value="details.id"
-          :data-task-header="item.id"
-          @change="planCheckBoxSelected(item.id, details.id)"
-        />
-        <label for="checkdone" class="task_detail_text">
-          {{ details.user_name}}
-        </label>
-      </ul>
-    </ul>
+      </div>
   </div>
 </template>
 
